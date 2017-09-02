@@ -360,7 +360,7 @@ module.exports = React.createClass({
             <form autoComplete="off">
                 <input className="mx_MemberList_query" id="mx_MemberList_query" type="text"
                         onChange={this.onSearchQueryChanged} value={this.state.searchQuery}
-                        placeholder={ _t('Filter room members') } />
+                        placeholder={ _t('Filter room members') + " (" + this.state.members.length + ")" } />
             </form>
         );
 

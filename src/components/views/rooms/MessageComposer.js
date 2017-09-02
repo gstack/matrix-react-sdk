@@ -61,6 +61,7 @@ export default class MessageComposer extends React.Component {
         // marked as encrypted.
         // XXX: fragile as all hell - fixme somehow, perhaps with a dedicated Room.encryption event or something.
         MatrixClientPeg.get().on("event", this.onEvent);
+        console.log('Broke no joke')
     }
 
     componentWillUnmount() {
@@ -373,11 +374,6 @@ export default class MessageComposer extends React.Component {
 
         return (
             <div className="mx_MessageComposer mx_fadable" style={{ opacity: this.props.opacity }}>
-                <div className="mx_MessageComposer_wrapper">
-                    <div className="mx_MessageComposer_row">
-                        {controls}
-                    </div>
-                </div>
                 <div className="mx_MessageComposer_formatbar_wrapper">
                     <div className="mx_MessageComposer_formatbar" style={this.state.showFormatting ? {} : {display: 'none'}}>
                         {formatButtons}
@@ -390,6 +386,11 @@ export default class MessageComposer extends React.Component {
                              onClick={this.onToggleFormattingClicked}
                              className="mx_MessageComposer_formatbar_cancel mx_filterFlipColor"
                              src="img/icon-text-cancel.svg" />
+                    </div>
+                </div>
+                <div className="mx_MessageComposer_wrapper">
+                    <div className="mx_MessageComposer_row">
+                        {controls}
                     </div>
                 </div>
             </div>
